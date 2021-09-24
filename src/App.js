@@ -5,7 +5,7 @@ const App = () => {
   const [numbers, setNumbers] = useState({arr: [], value: ""});
 
   const AddNumber = (event) => {
-    if (event.code === "Enter") {
+    if (event.code === "Enter" || event.target.outerText === "Submit") {
       let temp = numbers.arr
       temp.push(numbers.value)
       setNumbers({arr: temp, value: ""})
@@ -23,9 +23,9 @@ const App = () => {
 
   return (
     <div>
-      <div>
-        <input type="text" name="number" value={numbers.value} onChange={handleChange} onKeyPress={AddNumber} />
-        <button onClick={AddNumber}>Submit</button>
+      <div className="inputs">
+        <input className="input" type="text" name="number" value={numbers.value} onChange={handleChange} onKeyPress={AddNumber} />
+        <button className="submit" onClick={AddNumber}>Submit</button>
       </div>
       <div>
         <ul>
